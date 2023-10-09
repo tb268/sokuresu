@@ -1,0 +1,196 @@
+.container {
+    text-align: center;
+    margin-top: 0px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff;
+    margin-top: 0;
+}
+
+.form-control {
+    width: 80%;
+    margin: 10px auto;
+}
+
+select {
+    width: 30%;
+    margin: 10px auto;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+.output {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.output textarea {
+    width: 80%;
+}
+
+.output button {
+    margin-top: 10px;
+    width: 15%;
+}
+
+.footer {
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: arial;
+}
+
+body {
+    background-color: #f8f9fa;
+    background: #ecf0f1;
+    font-family: arial;
+    color: #888;
+    margin-top: 0px;
+}
+
+.banner {
+    background: #00DAFC;
+    line-height: 400px;
+    text-align: center;
+    color: #fff;
+    font-size: 60px;
+    height: 400px;
+    width: 100%;
+
+}
+
+
+.header {
+    height: 80px;
+    background: #00DAFC;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+}
+
+.footer {
+    height: 60px;
+    background: #00DAFC;
+    color: #fff;
+    width: 100%;
+    margin-top: 100px;
+}
+
+
+.logo {
+    margin: 0;
+    line-height: 50px;
+    float: left;
+}
+
+.logo a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav {
+    list-style: none;
+    float: right;
+}
+
+.nav li {
+    display: inline-block;
+    margin: 0;
+}
+
+.nav li a {
+    display: inline-block;
+    padding: 3px 15px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.container:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.footer {
+    background: #0A95AA;
+    color: #fff;
+    height: 100px
+}
+
+.copy {
+    font-size: 10px;
+    text-align: center
+}
+
+.bottom-nav {
+    text-align: center;
+    background: #02BDD6;
+    width: 100%;
+    color: #fff;
+    height: 35px
+}
+
+.bottom-nav .nav {
+    float: none;
+    margin: 0
+}
+
+.bottom-nav .nav a {
+    padding: 0 25px;
+    line-height: 35px
+}
+
+.fixed-top,
+.fixed-bottom {
+    background: #02BDD6;
+    position: fixed;
+    top: 0;
+}
+
+.fixed-bottom {
+    top: auto;
+    bottom: 0;
+}
+
+.output {
+    display: flex
+}
+
+
+
+.add-btn {
+    margin-top: 15px;
+    width: 80%;
+    height: 50px;
+    text-align: center;
+}
+
+.add-btn-area {
+    margin-top: 15px;
+    width: 80%;
+    height: 50px;
+    text-align: right;
+}
+
+.btn_btn-primary {
+    height: 50px;
+    width: 200px;
+    background-color: #02BDD6;
+}

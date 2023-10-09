@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使い方 即レスcom</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="./index.html">即レスcom</a></h1>
+            <ul class="nav">
+                <li><a href="./index.html">ホームへ</a></li>
+                <li><a href="./custom.html">使い方へ</a></li>
+                <li><a href="./error.html">エラーが起こる場合</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <h2>1.APIキーの取得</h2><br>
+    <h3>1.1 ログイン</h3><br>
+    以下のURLからchatgptアカウントに新規登録またはログインしてください。<br>
+    GPT - OpenAI API
+    https://platform.openai.com/overview
+
+    <h3>1.2 GPTのAPIキーを発行する。</h3><br>
+    ログインしたら右上の"Personal"から"View API keys"へ移動し
+    "Create New Secret Key"をクリックします。
+    任意の文字を入れたらAPIキーが発行されます。<br>
+    ※注意！ APIキーはこの時しか表示されません。忘れずにメモしておきましょう！<br>
+    ※注意！ APIキーは個人ごとに別々に発行されています。誰にも知られないようにしましょう！<br>
+
+    <h3>1.3 クレジットカードの登録</h3><br>
+    同じ画面から"Billing"、"Payment methods"から"Add payment method"を選択し、クレジットカード番号を入力しましょう。
+    ※注意！ クレジットカード登録時点で最低5ドルの支払いが必要です。(2023/10/8 時点)
+
+    （任意）利用額上限の設定
+    同じ画面の"Usage limits"から毎月の利用額の上限が決められます。<br>
+    Soft limitは指定した額を超えるとメールアドレスに通知が来るようになり、
+    Hard limitを指定するとそれを超える利用はできなくなります。<br>
+
+
+    <br>
+    <h2>2.利用</h2><br>
+    <h3>2.1 APIキーの設定</h3><br>
+    1.2で発行したAPIキーをコピーして、「APIキーを入力」部分に貼り付けましょう。<br>
+    <h3>2.2 入力文と言い方設定</h3><br>
+    「APIキーを入力」の下に返答を考えたい文章を入れてください。
+    また言い方設定から敬語かタメ口かを設定できます。
+    <h3>2.3 実行</h3><br>
+    「送信」ボタンを押します。下に返答の3つの候補が出ます。<br>
+
+
+    <footer class="footer">
+        <div class="container">
+            <ul class="nav">
+                <li><a href="./index.html">ホームへ</a></li>
+                <li><a href="./custom.html">使い方へ</a></li>
+                <li><a href="./error.html">エラーが起こる場合</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

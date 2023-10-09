@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="入力文に対してAIを使って即レスをするwebアプリケーション" name="description">
+  <meta charset="utf-8">
+  <title>即レスcom</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  <link href="img/favicon.ico" rel="icon">
+  <!--新規コメント-->
+
+</head>
+
+<script>
+
+  //GPTへの呼び出しーーーーーーーーーーーーーーーーーーーーーーー
+  function SendTest() {
+    document.getElementById("answer1").value = "loading now...";
+    document.getElementById("answer2").value = "loading now...";
+    document.getElementById("answer3").value = "loading now...";
+    //フォームデータ（入力文）
+    //文字列として取得
+    const text = String(document.getElementById('question_text').value);
+    //セレクトボタンの取得
+    const talktype = String(document.getElementById("talk_type").value);
+    //apiキーの取得
+    const api_key = String(document.getElementById('api_key').value);
+
+    let cookies;
+    if (talktype == "カスタム") {//カスタムの場合
+      cookies = get_All_Cookie();
+    }
+    else {//カスタム以外の場合
+      cookies = []
+    }
+    //フォームデータ（入力文）
+    const d = {
+      text: String(text),//おはようとか
+      talk_type: String(talktype),//敬語、タメ語とか
+      cookies: cookies,
+      api_key: api_key,
+    };
+    $.ajax({
+      type: "POST",
+      url: "http://127.0.0.1:8000/gpt",//ここはサーバーのURLに対して要変更
+      data: JSON.stringify(d),//pythonへ送る値。json形式に変換する必要あり
+      contentType: "application/json", // コンテンツタイプをJSONに設定
+      processData: false,
+      success: function (data) {
+        document.getElementById("answer1").value = data[0];
+        document.getElementById("answer2").value = data[1];
+        document.getElementById("answer3").value = data[2];
+      },
+      error: function () {
+        document.getElementById("answer1").value = "エラーしました";
+        document.getElementById("answer2").value = "エラーしました";
+        document.getElementById("answer3").value = "エラーしました";
+      }
+    });
+  }
+</script>
+
+<body>
+  <!--送信ボタン-->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo"><a href="./index.html">即レスcom</a></h1>
+      <ul class="nav">
+        <li><a href="./index.html">ホームへ</a></li>
+        <li><a href="./custom.html">使い方へ</a></li>
+        <li><a href="./error.html">エラーが起こる場合</a></li>
+      </ul>
+    </div>
+  </header>
+  <center>
+
+    <form enctype="multipart/form-data" id="api-form">
+      <input class="form-control" name="api_key" type="password" id="api_key" rows="1" style="width: 80%;"
+        placeholder="APIキーを入力"></input>
+    </form>
+    <!--入力フォーム-->
+    <form enctype="multipart/form-data" id="gpt-form">
+      <textarea class="form-control" id="question_text" type="text" name="question_text"
+        placeholder="例：おはよう！"></textarea>
+      <br>
+      <!--敬語タメ語セレクト-->
+      言い方設定：
+      <select id="talk_type" name="言い方設定">
+        <option name="talk_type" value="タメ語" selected> タメ語
+        <option name="talk_type" value="敬語"> 敬語
+        <option name="talk_type" value="カスタム"> カスタム
+      </select>
+      <!--送信ボタン-->
+      <div>
+        <input class="btn_btn-primary" type="button" value="送信" onclick="SendTest();">
+      </div>
+    </form>
+
+    <!--出力テキスト-->
+
+    <!-- コピー対象要素とコピーボタン -->
+    <div class="output">
+      <textarea class="form-control" id="answer1" type="text" value="コピー対象の文言" placeholder="解答例1"></textarea>
+      <button onclick="copyToClipboard(1)">Copy text</button>
+    </div>
+
+    <!-- コピー対象要素とコピーボタン -->
+    <div class="output">
+      <textarea class="form-control" id="answer2" type="text" value="コピー対象の文言" placeholder="解答例2"></textarea>
+      <button onclick="copyToClipboard(2)">Copy text</button>
+    </div>
+
+    <!-- コピー対象要素とコピーボタン -->
+    <div class="output">
+      <textarea class="form-control" id="answer3" type="text" value="コピー対象の文言" placeholder="解答例3"></textarea>
+      <button onclick="copyToClipboard(3)">Copy text</button>
+    </div>
+
+
+    <!-- カスタムシートへ -->
+    <br>
+    <h3>カスタムシート</h3>
+    <a href="./howtocustom.html">カスタムシートの使い方はこちら</a>
+
+
+
+
+    <div class="form-wrapper">
+      <form id="form">
+      </form>
+      <div class="add-btn-area">
+        <button class="add-btn" onclick="add_form_element();">＋</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- 戻る -->
+    <br>
+    <button class="cookie_save" onclick="save_cookie();">クッキーに保存</button>
+    <button class="cookie_load" onclick="load_cookie();">クッキーを呼び出し</button>
+  </center>
+  <footer class="footer">
+    <div class="container">
+      <ul class="nav">
+        <li><a href="./index.html">ホームへ</a></li>
+        <li><a href="./custom.html">使い方へ</a></li>
+        <li><a href="./error.html">エラーが起こる場合</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+
+</html>
